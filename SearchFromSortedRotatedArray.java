@@ -1,5 +1,7 @@
 /* daily coding problem #58
 * assumption: integers in the array are unique
+* O(lgn) because we perform 1 binary search all the way
+* eliminating half of the array each iteration
 */
 
 public class SearchFromSortedRotatedArray
