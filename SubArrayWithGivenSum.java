@@ -16,8 +16,8 @@ public class SubArrayWithGivenSum
 {
 	public static void main(String[] args)
 	{
-		int s = 0;
-		List<Integer> numbers = new ArrayList<>(Arrays.asList(1, 4, 20, 3, 10, 5));
+		int s = 7;
+		List<Integer> numbers = new ArrayList<>(Arrays.asList(1, 4, 0,0, 3, 10, 5));
 		List<Integer> result = findSubArray(numbers, s); 
 
 		if(result == null)
@@ -35,7 +35,7 @@ public class SubArrayWithGivenSum
 		
 	}
 
-	public static List<Integer> findSubArray(List<Integer> numbers, int s)
+/*	public static List<Integer> findSubArray(List<Integer> numbers, int s)
 	{
 		List<Integer> result = new ArrayList<>();
 
@@ -77,6 +77,52 @@ public class SubArrayWithGivenSum
 		{
 			result = null;
 		}
+		return result;
+	}*/
+
+	public static List<Integer> findSubArray(List<Integer> numbers, int s)
+	{
+		List<Integer> result = new ArrayList<>();
+		int sum = numbers.get(0);
+		int i = 1;
+		int start = 0;
+
+		boolean found = false;
+		while(i <= numbers.size() && !found)
+		{
+			if(sum == s)
+			{
+				found = true;		
+				result.add(start);
+				result.add(i-1);
+			}
+
+			else if(sum > s && start < i-1)
+			{
+				while(sum > s && start < i-1)
+				{
+					sum -= numbers.get(start);
+					System.out.println(sum);
+					start++;
+				}
+			}
+	
+			else
+			{
+				if(i < numbers.size())
+				{
+					sum += numbers.get(i);
+					System.out.println(sum);
+				}
+				i++;
+			}
+		} 
+		
+		if(!found)
+		{
+			result = null;
+		}
+
 		return result;
 	}
 }
