@@ -2,6 +2,7 @@
 /* return the shortest substring containing all the characters in the set.*/
 
 // !!! pattern may contain duplicate character
+// https://articles.leetcode.com/finding-minimum-window-in-s-which/
 
 /* 0) first check if string length is smaller than pattern length --> return
 * 1) maintain 2 tables - needToFind and hasFound, and a count, a start pointer,
