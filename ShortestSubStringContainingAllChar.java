@@ -1,6 +1,8 @@
 /* daily coding problem #103 */
 /* return the shortest substring containing all the characters in the set.*/
 
+// !!! pattern may contain duplicate character
+
 /* 0) first check if string length is smaller than pattern length --> return
 * 1) maintain 2 tables - needToFind and hasFound, and a count, a start pointer,
 *    a minSubStringLength = Max int, substring startindex, substring endindex
@@ -22,6 +24,15 @@
 *    update min substring length, substring startindex = start, substring endindex = i+1
 * 10) repeat step 4 until the last character of string
 * 11) return substring from index startIndex to endIndex
+*
+* if pattern does not contain duplicate character
+* we just need to maintain 1 table with char as key, index as value
+* step through string and fill table if char exists in pattern
+* when table's size == pattern length
+* a window is found. iterate though the table to find the min and max value
+* and get the length of that window
+* then remove the entry with min value from table and 
+* continue to iterate through the string until table is filled again
 */
 
 import java.util.*;
